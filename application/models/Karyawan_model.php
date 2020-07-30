@@ -2,7 +2,8 @@
 
 class Karyawan_model extends CI_Model
 {
-    public function getdatakaryawan($id = null)
+
+    public function getdatakaryawan()
     {
         if($id === null){
             return $this->db->get('karyawan')->result_array();
@@ -28,6 +29,7 @@ class Karyawan_model extends CI_Model
         $this->db->update('karyawan', $data, ['id' => $id]);
         return $this->db->affected_rows();
     }
-}
+
 
 ?>
+
