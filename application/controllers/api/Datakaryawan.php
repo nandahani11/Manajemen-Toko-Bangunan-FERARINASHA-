@@ -11,7 +11,7 @@ class datakaryawan extends REST_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Karyawan_model','karyawan');
+        $this->load->model('Karyawan_model', 'karyawan');
     }
 
     public function index_get()
@@ -22,12 +22,13 @@ class datakaryawan extends REST_Controller
         } else {
             $karyawan = $this->karyawan->getdatakaryawan($id);
         }
+
         
         if($karyawan){
             $this->response([
                 'status' => TRUE,
                 'data' => $karyawan
-            ], REST_Controller::HTTP_NOT_FOUND);
+            ], REST_Controller::HTTP_OK);
         } else{
             $this->response([
                 'status' => FALSE,
