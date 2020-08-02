@@ -28,7 +28,7 @@ class databarang extends REST_Controller
             $this->response([
                 'status' => TRUE,
                 'data' => $barang
-            ], REST_Controller::HTTP_NOT_FOUND);
+            ], REST_Controller::HTTP_OK);
         } else{
             $this->response([
                 'status' => FALSE,
@@ -67,7 +67,6 @@ class databarang extends REST_Controller
     public function index_post()
     {
         $data = [
-            'kode_barang' => $this->post('kode_barang'),
             'nama' => $this->post('nama'),
             'harga' => $this->post('harga'),
             'stok' => $this->post('stok')
@@ -91,7 +90,6 @@ class databarang extends REST_Controller
     {
         $id = $this->put('id');
         $data = [
-            'kode_barang' => $this->put('kode_barang'),
             'nama' => $this->put('nama'),
             'harga' => $this->put('harga'),
             'stok' => $this->put('stok')
