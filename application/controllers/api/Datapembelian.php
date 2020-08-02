@@ -28,7 +28,7 @@ class datapembelian extends REST_Controller
             $this->response([
                 'status' => TRUE,
                 'data' => $pembelian
-            ], REST_Controller::HTTP_NOT_FOUND);
+            ], REST_Controller::HTTP_OK);
         } else{
             $this->response([
                 'status' => FALSE,
@@ -67,7 +67,10 @@ class datapembelian extends REST_Controller
     public function index_post()
     {
         $data = [
-            'jumlah_barang' => $this->post('jumlah_barang'),
+            'id_barang' => $this->post('id_barang'),
+            'tgl_transaksi' => date_format(date_create($this->post('tgl_pembelian')), 'Y-m-d'),
+            'stok' => $this->post('stok'),
+            'harga' => $this->post('harga'),
             'total' => $this->post('total')
         ];
 
@@ -89,7 +92,11 @@ class datapembelian extends REST_Controller
     {
         $id = $this->put('id');
         $data = [
-            'jumlah_barang' => $this->put('jumlah_barang'),
+            'id_barang' => $this->put('id_barang'),
+            'id_barang' => $this->put('id_barang'),
+            'tgl_transaksi' => date_format(date_create($this->put('tgl_pembelian')), 'Y-m-d'),
+            'stok' => $this->put('stok'),
+            'harga' => $this->put('harga'),
             'total' => $this->put('total')
         ];
 
